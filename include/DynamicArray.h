@@ -13,17 +13,26 @@ private:
     }
 
 public:
+    // Бросает std::invalid_argument (n <= 0), std::bad_alloc (нет памяти)
     explicit DynamicArray(int n);
     ~DynamicArray();
 
+    // Бросает std::bad_alloc
     DynamicArray(const DynamicArray& other);
 
     void print() const;
-    bool set(int index, int value);
+
+    // Бросает std::out_of_range (индекс), std::invalid_argument (значение)
+    void set(int index, int value);
+
+    // Бросает std::out_of_range (индекс)
     int  get(int index) const;
     int  getSize() const { return size; }
 
-    bool push_back(int value);
+    // Бросает std::invalid_argument (значение), std::bad_alloc (нет памяти)
+    void push_back(int value);
+
+    // Недостающие элементы считаются нулями, размер не меняется
     void add(const DynamicArray& other);
     void sub(const DynamicArray& other);
 };
