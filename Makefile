@@ -1,7 +1,7 @@
 CXX      = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -Iinclude
 
-SRC      = src/DynamicArray.cpp src/main.cpp
+SRC      = src/main.cpp
 OBJ      = $(SRC:.cpp=.o)
 TARGET   = main
 
